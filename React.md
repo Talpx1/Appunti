@@ -16,24 +16,24 @@
 
 ## Import:
 
-- é pissibile importare `React` da CDN:
+- é possibile importare `React` da CDN:
 	- inserire tags script del CND in head
 	- inserire script tag con ```type="text/babel"``` → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (babel abilita `JSX`)
    non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento → in questo modo la variabile `ReactDOM` é gia disponibile nello script js
-- si importa react da npm (o altri package managers):
+- si importa `React` da `npm` (o altri package managers):
 	  - → in questo caso la variabile `ReactDOM` non é definita e `JSX` non viene interpretato, quindi bisonga:
-		- importare `Reac`t per `JSX` → ```javascript import React from "react"```
-		- importare `ReactDOM` → ```javascript import ReactDOM from "react-dom"```
+		- importare `Reac`t per `JSX` → ```import React from "react"```
+		- importare `ReactDOM` → ```import ReactDOM from "react-dom"```
 
 
 ## Basi:
 
-- istruzione ```javascript ReactDOM.render(param1, param2)```:
+- istruzione ```ReactDOM.render(param1, param2)```:
   - `param1`: cosa voglio renderizzare (es: espressione `JSX`)
 	- `param2`: dove voglio renderizzarlo → il contenuto di `param1` verrá messo all'interno dell'elemento indicato da `param2` → `param2` dev'essere un `DOMNode`
-	  - es: ```javascript document.getElementById('root')``` → di solito si usa un elemento con ```html id="root"``` come 'punto di ignezione'
-  - es: ```javascript ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));```
-  - es2: ```javascript ReactDOM.render(<h1>Hello, World!</h1>, document.querySelector('#root'));```
+	  - es: ```document.getElementById('root')``` → di solito si usa un elemento con ```id="root"``` come 'punto di ignezione'
+  - es: ```ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));```
+  - es2: ```ReactDOM.render(<h1>Hello, World!</h1>, document.querySelector('#root'));```
 - la riusabilitá e componibilitá del codice é fornita tramite i componenti
 
 
