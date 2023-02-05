@@ -6,26 +6,20 @@
 - genera codice componibile e riutilizzabile: vengono definiti molti componenti che si occupano di una piccola cosa
   - questi piccoli componenti possono essere combinati tra loro per creare componenti piú grandi e funzionali
   - questi piccoli componenti possono essere utilizzati piú volte in piú posti diversi rendendoli riutilizzabili (non si ripete lo stesso codice)
-
-
-
 - é dichiarativo:
-	- basta dire cosa si desidera fare, l'implementazione  di come farlo non dev'essere specificata (é gestita da `React`)
-	- opposto di imperativo → bisogna descrivere ogni passaggio necessario per compiere un'operazione (`vanilla JS` é imperativo)
-
-
-
+  - basta dire cosa si desidera fare, l'implementazione  di come farlo non dev'essere specificata (é gestita da `React`)
+  - opposto di imperativo → bisogna descrivere ogni passaggio necessario per compiere un'operazione (`vanilla JS` é imperativo)
 - é componibile:
-	- é possibile definire piccoli pezzi di interfaccia che possono essere assemblati tra loro per creare porzioni di interfaccia piú grandi
-	- → questi pezzetti di interfaccia possono essere riutilizzati piú vole e in piú posti
+  - é possibile definire piccoli pezzi di interfaccia che possono essere assemblati tra loro per creare porzioni di interfaccia piú grandi
+  - → questi pezzetti di interfaccia possono essere riutilizzati piú vole e in piú posti
 
 
 ## Import:
 
 - é possibile importare `React` da CDN:
-	- inserire tags script del CND in head
-	- inserire script tag con `type="text/babel"` 
-	  - → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (`Babel` abilita `JSX`)
+  - inserire tags script del CND in head
+  - inserire script tag con `type="text/babel"` 
+    - → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (`Babel` abilita `JSX`)
 
 
   non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento → in questo modo la variabile `ReactDOM` é gia disponibile nello script js  
