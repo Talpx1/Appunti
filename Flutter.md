@@ -25,5 +25,5 @@ Per registrarsi si va all'indirizzo https://developer.apple.com/programs/enroll/
 Per un account Individual serve registrarsi a Apple, attivare l'autenticazione a due fattori e fornire le proprie referenze.  
 Per un account Company:
 - si puó usare un D-U-N-S Number → numero da 9 caratteri associato alla societá.
-  - [Leggi di piú]([url](https://developer.apple.com/programs/enroll/))
+  - https://developer.apple.com/programs/enroll/
 - 
