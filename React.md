@@ -17,8 +17,8 @@
 ## Import:
 
 - é pissibile importare `React` da CDN:
-	inserire tags script del CND in head
-	inserire script tag con ```type="text/babel"``` → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (babel abilita `JSX`)
+	- inserire tags script del CND in head
+	- inserire script tag con ```type="text/babel"``` → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (babel abilita `JSX`)
    non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento → in questo modo la variabile `ReactDOM` é gia disponibile nello script js
 - si importa react da npm (o altri package managers):
 	  - → in questo caso la variabile `ReactDOM` non é definita e `JSX` non viene interpretato, quindi bisonga:
