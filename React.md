@@ -11,7 +11,7 @@
 	- opposto di imperativo → bisogna descrivere ogni passaggio necessario per compiere un'operazione (`vanilla JS` é imperativo)
 - é componibile:
 	- é possibile definire piccoli pezzi di interfaccia che possono essere assemblati tra loro per creare porzioni di interfaccia piú grandi
-	-> questi pezzetti di interfaccia possono essere riutilizzati piú vole e in piú posti
+	- → questi pezzetti di interfaccia possono essere riutilizzati piú vole e in piú posti
 
 
 ## Import:
