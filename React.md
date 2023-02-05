@@ -22,7 +22,7 @@
    non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento → in questo modo la variabile `ReactDOM` é gia disponibile nello script js
 - si importa `React` da `npm` (o altri package managers):
   - → in questo caso la variabile `ReactDOM` non é definita e `JSX` non viene interpretato, quindi bisonga:
-    - importare `Reac`t per `JSX` → ```import React from "react"```
+    - importare `React` per `JSX` → ```import React from "react"```
     - importare `ReactDOM` → ```import ReactDOM from "react-dom"```
 
 
