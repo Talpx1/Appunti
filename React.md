@@ -30,8 +30,9 @@
 
 - istruzione ```ReactDOM.render(param1, param2)```:
   - `param1`: cosa voglio renderizzare (es: espressione `JSX`)
-	- `param2`: dove voglio renderizzarlo → il contenuto di `param1` verrá messo all'interno dell'elemento indicato da `param2` → `param2` dev'essere un `DOMNode`
-	  - es: ```document.getElementById('root')``` → di solito si usa un elemento con ```id="root"``` come 'punto di ignezione'
+  - `param2`: dove voglio renderizzarlo 
+    - → il contenuto di `param1` verrá messo all'interno dell'elemento indicato da `param2` → `param2` dev'essere un `DOMNode`
+      - es: ```document.getElementById('root')``` → di solito si usa un elemento con ```id="root"``` come 'punto di ignezione'
   - es: ```ReactDOM.render(<h1>Hello, World!</h1>, document.getElementById('root'));```
   - es2: ```ReactDOM.render(<h1>Hello, World!</h1>, document.querySelector('#root'));```
 - la riusabilitá e componibilitá del codice é fornita tramite i componenti
