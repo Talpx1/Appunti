@@ -40,19 +40,23 @@
 
 ## Sintassi:
 
-- nel codice di react (con `Babel`) é possibile inserire una sorta di `HTML`, chiamato `JSX (JavaScriptXML)` → i tag `JSX` sono delle espressioni che vengono convertite in oggetti JS
-- in `JSX` al posto di ```html class="css_class1 ..."``` si usa ```html className="css_class1 ..."``` → la parola `class` in `JS` é riservata
-- in funzioni che accettano `JSX` o nello statement di return di un componente é possibile ritornare un solo tag di primo livello → altri tag possono essere nestati dentro questo
+- nel codice di `React` (con `Babel`) é possibile inserire una sorta di `HTML`, chiamato `JSX (JavaScriptXML)` 
+  - → i tag `JSX` sono delle espressioni che vengono convertite in oggetti JS
+- in `JSX` al posto di ```class="css_class1 ..."``` si usa ```className="css_class1 ..."``` → la parola `class` in `JS` é riservata
+- in funzioni che accettano `JSX` o nello statement di return di un componente é possibile ritornare un solo tag di primo livello 
+  - → altri tag possono essere nestati dentro questo
 - se si vuole ritornare un'espressione multiline `JSX`, questa va messa tra parentesi → si evita l'errato autopiazzamento del ';'
-	- es: ```javascript const elem = (
-	      <div>
-	 	  <h1>Title</h1>
-		  <p>paragraph</p>
-	      </div>
-	    );```
+  - es: 
+  ```js 
+	const elem = (
+	  <div>
+	     <h1>Title</h1>
+	     <p>paragraph</p>
+	  </div>
+	);
+  ```
 - siccome un solo tag di primo livello puó essere ritornato, é possibile usare un `fragment` 
-  - → ```html <> JSX_HERE </>```
-	- → non renderizza nessun tag `HTML` (al contrario di un `div` wrapper che renderizzerebbe un `div`, appunto)
+  - → ```<> JSX_HERE </>``` → non renderizza nessun tag `HTML` (al contrario di un `div` wrapper che renderizzerebbe un `div`, appunto)
 
 
 ## Componenti:
@@ -62,5 +66,5 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
 - per creare un componente basta definire una funzione che ritorna un'espressione `JSX`
 - i componenti vanno definiti in `PascalCase`
 - per usare un componente basta usare il nome del componente come un tag `HTML`
-	- → es ```html <Componente></Componente>``` o ```html <Componente />```
-- i tag componente `JSX` possono accettare l'auto-chiusura (```html <Componente />``` al posto di creare ```html <Componente></Componente>``` senza tag nestati)
+	- → es ```<Componente></Componente>``` o ```<Componente />```
+- i tag componente `JSX` possono accettare l'auto-chiusura (```<Componente />``` al posto di creare ```<Componente></Componente>``` senza tag nestati)
