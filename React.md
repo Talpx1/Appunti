@@ -8,9 +8,11 @@
   - questi piccoli componenti possono essere utilizzati piú volte in piú posti diversi rendendoli riutilizzabili (non si ripete lo stesso codice)
 
 
+
 - é dichiarativo:
 	- basta dire cosa si desidera fare, l'implementazione  di come farlo non dev'essere specificata (é gestita da `React`)
 	- opposto di imperativo → bisogna descrivere ogni passaggio necessario per compiere un'operazione (`vanilla JS` é imperativo)
+
 
 
 - é componibile:
