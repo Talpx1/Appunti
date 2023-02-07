@@ -66,7 +66,7 @@
   ```
   
 - siccome un solo tag di primo livello puó essere ritornato, é possibile usare un `fragment` 
-  - → `<> JSX_HERE </>` → non renderizza nessun tag `HTML` (al contrario di un `div` wrapper che renderizzerebbe un `div`, appunto)
+  - → `<> JSX_HERE </>` → non renderizza nessun tag `HTML` (al contrario di un `div` wrapper che renderizzerebbe un `div`, appunto)  
 
 
 ## Componenti:
@@ -82,3 +82,32 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
 	- → es `<Componente></Componente>` o `<Componente />`
 
 - i tag componente `JSX` possono accettare l'auto-chiusura (`<Componente />` al posto di creare `<Componente></Componente>` senza tag nestati)  
+
+- componenti possono essere usati all'interno di altri componenti
+
+- i componenti di solito risiedono in un proprio file
+  - es: il componente Header sará definito in un file Header.jsx
+
+- si usa l'estensione `.jsx` per definire file in cui si usa `JSX` (`.tsx` in caso si usi `Typescript`)
+
+- i componenti, se definiti in un file diverso da quello in cui si sta lavorando, vanno importati
+  - es: sto lavorando nel file App.jsx e voglio usare il componente Header definito in Header.jsx. In questo caso, in App.jsx, dovró importare Header tramite:
+    - `import Header from path_to_file/Header` → se il componente viene esportato di default in Header.jsx 
+    - `import { Header } from path_to_file/Header` → se il componente NON viene esportato di default in Header.jsx 
+    - NOTA: nello statemant di import non é necessario indicare l'estensione del file
+
+- i componenti, per essere usati al di fuori del file in cui sono definiti, devono essere esportati
+  - export di default: `export default funcion Componente{ ... }` → é possibile avere un solo export di default in ogni file
+  - export NON default: `export funcion Componente{ ... }` → é possibile piú export NON default in un file
+
+- nel file di un componente, possono essere specificate anche altre funzioni, costanti e qualsiasi espressione `JS` valida → possono anche non venir esportate
+
+- i componenti possono essere definiti tramite classi o funzioni → il modo moderno di usare `React` prevede di usare le funzioni
+  - → questo modo é anche molto piú veloce, pulito e meno verboso 
+
+
+## Filesystem
+
+é possibile suddvidere i file (componenti, ...) creati in sottocartelle.  
+Spesso ci sono diversi modi per organizzare il progetto, quindi la scelta é anche personale.  
+
