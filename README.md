@@ -10,5 +10,5 @@ Planning on taking notes about:
 - Vite
 - Docker
 - JS (ES6+) → on specific topics (like await/async, ...)
-- Webpack
+- WebComponents
 - PWA
