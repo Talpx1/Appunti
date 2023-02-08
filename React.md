@@ -22,19 +22,35 @@
   - → questi pezzetti di interfaccia possono essere riutilizzati piú vole e in piú posti
 
 
-## Import
+## Import e Setup
 
 - é possibile importare `React` da CDN:
   - inserire tags script del CND in head
   - inserire script tag con `type="text/babel"` 
     - → punta a un file js locale dove si puó scrivere usando `React` e `Babel` (`Babel` abilita `JSX`)
-
-  non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento → in questo modo la variabile `ReactDOM` é gia disponibile nello script js  
+  - la variabile `ReactDOM` é gia disponibile nello script js
+  - non é la maniera ottimale, é facile e veloce ma limita la potenza dello strumento     
   
-- si importa `React` da `npm` (o altri package managers):
-  - → in questo caso la variabile `ReactDOM` non é definita e `JSX` non viene interpretato, quindi bisonga:
+- si importa `React` da `npm` (o altri package managers) e si usa un tool come `CreateReactApp`, `Vite`, ...:
+  - usando un tool come `CreateReactApp`, `Vite`, ... si esegue il setup di `Babel` e di un bundler come `Webpack` o simili 
+  - in questa maniera la variabile `ReactDOM` non é definita e `JSX` non viene interpretato, quindi bisonga:
     - importare `React` per `JSX` → `import React from "react"`
     - importare `ReactDOM` → `import ReactDOM from "react-dom"`
+  - maniera migliore e consigliata per creare un progetto, soprattutto se andrá in produzione 
+
+
+### Create React App (CRA)
+
+- installare `Node.js` → opzionalmente usare `nvm` (Node Version Manager)
+- installare `npm`
+- inizializzare `nvm` → `nvm install --lts`
+- creare il progetto → `npx create-react-app app-name`
+- entratre nella cartella creata → `cd app-name`
+- avviare il progetto → `npm start`
+  - l'output della console dovrebbe fornire il link di sviluppo su cui é possibile navigare l'applicazione 
+    - solitamente `http://localhost:3000` per la macchina corrente e `http://<current.machine.lan.ip>:3000` per il network locale (LAN)
+
+→ verrá creato un setup boilerplate con i principali file necessari per iniziare ad usare `React`
 
 
 ## Basi
@@ -70,9 +86,28 @@
 	  </div>
 	);
   ```
+
+- per usare delle variabili o espressioni `JS` in `JSX`, queste vanno wrappate in parentesi graffe (`{}`)
+  - es: `<p>{text}</p>` o `<input type="{type}" />` o `<input value="{val.toFixed(2)}" />` o `<input value="{parseFloat(val)}" />`
+
+- per usare l'attributo `HTML` `style` in `JSX`, va passato un oggetto
+  - siccome un oggetto é un espressione `JS`, questo deve essere wrappato in parentesi graffe (`{}`) → ci sará un 'doppio wrapper di graffe'
+  - le proprietá dell'oggetto vanno scritte in `camelCase`
+  - il valore dell'attributo NON va messo tra virgolette o apici (`"" o ''`)
+  - es: `<p style={{ color: blue, marginBotton: 3px }}> ... </p>`
   
 - siccome un solo tag di primo livello puó essere ritornato, é possibile usare un `fragment` 
   - → `<> JSX_HERE </>` → non renderizza nessun tag `HTML` (al contrario di un `div` wrapper che renderizzerebbe un `div`, appunto)  
+
+- usando un tool di setup, spesso si avrá la necessitá di importare gli assets nei file `JS`
+  - si puo fare con uno statement di import → `import image from image.png`
+    - per gli assets va specificata l'estensione 
+  - verrá creata una variabile nominata con il nome dell import (image nell'esempio precedente)
+    - puó essere usata come una qualsiasi variabile `JS` in `JSX` → `<img src={image} />`  
+  - MAI inserire la path di un asset direttamente nel codice (hardcoded)
+    - non funzionerebbe dopo la build in quanto il bundler 'romperebbe' il collegamento durante la creazione del bundle
+    - usare gli import per prevenire questo problema
+    - si potrebbero mettere gli assets in `/public/` e non incappare in questo problema (public non é soggetta al bundle) → é fortemente sconsigliato
 
 
 ## Componenti
@@ -123,18 +158,29 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
 Spesso ci sono diversi modi per organizzare il progetto, quindi la scelta é anche personale. 
 
 - si ha sempre un file `index.html` → contiene la parte 'al di fuori' di `React`
+  - a seconda del tool di setup usato potrebbe trovarsi in `/public/` 
   - la head del sito é accessibile in questo file
   - il body del sito é definito in questo file
   - solitamente si ha un div, subito dentro il body, con `id="root"`, che funge da punto di ignezione del contenuto generato con `React`
   - contiene il collegamento al file `JS` iniziale in cui `ReactDOM` é definito ed esegue l'istruzione di rendering
 
-- solitamente si ha un file `index.js` → file `JS` iniziale linkato dal tag script in `index.html`
+- solitamente si ha un file `index.js` o `main.js` → file `JS` iniziale linkato dal tag script in `index.html`
+  - a seconda del tool di setup usato potrebbe trovarsi in `/src/`
   - contiene l'inizio dell'app `React`
   - contiene il primo import di `React`
+  - contiene l'import dello stile → `index.css`, `style.css`, ...
+    - import ./path_to_css/index.css
+    - il bundler si occuperá di far funzionare il tutto
   - contiene l'istruzione di rendering del componente react e l'import di `ReactDOM` → `ReactDOM.render(<App />, document.querySelector('#root'))`
   - contiene l'import al componente radice (o il componente in sé) → viene usato come primo argomento nella funzione `ReactDOM.render` (punto precedente)
     - solitamente chiamato `App`
     - a volte definito nell file `index.js` stesso
     - a volte qeusto componente viene lasciato nella root del progetto e non viene, quindi, collocato insieme agli altri componenti
     - da questo componente si diramano tutti gli alti componenti, contesti, ...
+
+- a seconda del tool di setup usato si ha un file css (`index.css`, `style.css`, ...)
+  - solitamente (ma dipende dal tool usato) é situato in `/src/`
+  - in questo file possono essere aggiunti gli stili o fatte le integrazioni di css framework come `Tailwind` 
+
+- a seconda del tool di setup usato si ha una cartella `src/assets/` (o simile) che conterrá gli assets che verranno importati nei file `JS`
 
