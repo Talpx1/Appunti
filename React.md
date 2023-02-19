@@ -151,6 +151,55 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
 - i componenti possono essere definiti tramite classi o funzioni → il modo moderno di usare `React` prevede di usare le funzioni
   - → questo modo é anche molto piú veloce, pulito e meno verboso 
 
+### Props
+
+- i componenti possono accettare dei dati in ingresso (cosí da essere data-driven) detti props
+  - per passare dati (es variabili) a un componente come props, sará sufficente passarli come fossero attributi `HTML`
+  - questo approccio garantisce la riusabilitá e la dinamicitá del componente
+    - es: `<Componente titolo="esempio 1" />` 
+    - in questo modo ho passato la prop titolo con valore 'esempio 1' a Componente
+    - potrei utilizzare di nuovo Componente passando un titolo diverso → dinamicitá
+  - é possibile passare espressioni `JS` o `JSX` passando il valore tra `{}`, senza `""`
+    - es: `<Componente titolo={variabile_o_espressione} />`
+  - per leggere le props nel componente basta far sí che la funzione che definisce il componente accetti un parametro
+    - es: `export default funcion Componente(proprieta){ ... }` 
+    - questo parametro sará un oggetto con proprietá uguali a quelle che abbiamo passato al componente
+    - nell'esempio precedente per leggere 'titolo' ci basterá la seguente espressione → `proprieta.titolo`
+    - es: 
+    ```js
+	<Componente titolo="titolo esempio" />
+
+	export default function Componente(proprieta){
+		console.log(proprieta.titolo) //printerá 'titolo esempio'
+		return ( <h1>Il titolo é {proprieta.titolo}</h1> )
+	}
+	
+	Risultato: Il titolo é titolo esempio
+     ```
+     - di solito si usa il destructuring degli oggetti per leggere le prorietá
+       - per fare questo, nella dichiarazione del componente, come parametro, al posto di mettere una sola variabile, si dovrá mattere un oggetto con i nomi delle proprietá passate (devono essere uguali!)
+       - es: `export default function Componente({prop1, prop2})`
+       - in questo modo non sará piú necessario leggere le proprietá dall'oggetto ma si potranno usare le proprietá come una variabile a sé
+       - es:
+       ```js
+       	   <Componente titolo="titolo esempio" descrizione='descrizione esempio' />
+
+	   export default function Componente({titolo, descrizione}){
+		console.log(titolo) //printerá 'titolo esempio'
+		console.log(descrizione) //printerá 'descrizione esempio'
+		return ( 
+		  <>
+		    <h1>Il titolo é {titolo}</h1> 
+		    <p>La descrizione é {descrizione}</p> 
+		  </>
+		)
+		
+		Risultato: 
+		 Il titolo é titolo esempio
+		 La descrizione é descrizione esempio
+	   }
+       ```
+
 
 ## Filesystem
 
