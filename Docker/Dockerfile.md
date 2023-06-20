@@ -1,3 +1,8 @@
-#Sintassi
+<p> Fonti:
 
-Deve iniziare con l'istruzione '''FROM'''
+- https://docs.docker.com/engine/reference/builder/
+</p>
+
+# Sintassi
+
+Deve iniziare con l'istruzione `FROM`
