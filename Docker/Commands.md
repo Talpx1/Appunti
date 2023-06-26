@@ -28,7 +28,9 @@ se non si definisce un nome per il container, docker ne assegnerà uno in automa
 
 - `-d`: avvia il container in *detached mode* ➔ rilascia il terminale e fa girare il container in background.
 - `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su <porta_container> sarà disponibile dall'host su <porta_host> (*vedi appunti sui container per altre info*).
-- `--name <nome_container>`: assegna un nome al container che si sta andando a creare.  
+- `--name <nome_container>`: assegna un nome al container che si sta andando a creare.
+- `-e VARIABILE=valore`: questo flag può essere usato più volte nello stesso comando e permette di definire della variabili d'ambiente per il container.
+- `--net <network_name>` oppure `--network <network_name>`: connette il container al network specificato.  
 
 ## Docker Start Command
 
@@ -75,3 +77,9 @@ il <comando> DEVE essere un eseguibile.
 - `-it`: unisce i due flag precedenti, pemettendo di "accedere" al terminale del container (si potrebbe far finta di pensare di essere in ssh nel container).  
   ➔ per accedere al terminale si usa il comando `docker exec -it <container_name || container_id> /bin/bash` oppure `docker exec -it <container_name || container_id> sh`.  
 - `-d`: esegue il comando in *detached mode* ➔ rilascia il terminale ed esegue il comando in background.
+
+## Docker Network List Command
+con il comando `docker network ls` è possibile visualizzare i network esistenti.  
+
+## Docker Network Create Command
+con il comando `docker network create <nome_network>` è possibile creare un nuovo network.  
