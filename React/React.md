@@ -188,19 +188,19 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
     <Componente titolo="titolo esempio" descrizione='descrizione esempio' />
 
     export default function Componente({titolo, descrizione}){
-      	console.log(titolo) //printerá 'titolo esempio'
-      	console.log(descrizione) //printerá 'descrizione esempio'
-      	return (
-      	  <>
-      	    <h1>Il titolo é {titolo}</h1>
-      	    <p>La descrizione é {descrizione}</p>
-      	  </>
-      	)
+      console.log(titolo) //printerá 'titolo esempio'
+      console.log(descrizione) //printerá 'descrizione esempio'
+      return (
+        <>
+          <h1>Il titolo é {titolo}</h1>
+          <p>La descrizione é {descrizione}</p>
+        </>
+      )
     }
     ```
 
     Risultato:
-     Il titolo é titolo esempio
+     Il titolo é titolo esempio  
      La descrizione é descrizione esempio  
     
 
