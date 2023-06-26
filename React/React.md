@@ -177,7 +177,8 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
       return ( <h1>Il titolo é {proprieta.titolo}</h1> )
     }
     ```  
-    Risultato: Il titolo é titolo esempio
+    Risultato:  
+    Il titolo é titolo esempio  
   
   - di solito si usa il destructuring degli oggetti per leggere le prorietá
     - per fare questo, nella dichiarazione del componente, come parametro, al posto di mettere una sola variabile, si dovrá mattere un oggetto con i nomi delle proprietá passate (devono essere uguali!)
@@ -199,7 +200,7 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
     }
     ```
 
-    Risultato:
+    Risultato:  
      Il titolo é titolo esempio  
      La descrizione é descrizione esempio  
     
