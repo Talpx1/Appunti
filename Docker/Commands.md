@@ -1,5 +1,9 @@
 # Docker Commands
 
+Fonti:  
+  - https://www.youtube.com/watch?v=3c-iBn73dDE&t=3242s
+  - https://docs.docker.com/engine/reference/commandline  
+
 Tutti i comandi Docker iniziano con `docker`, vi sono poi alcuni "sottocomandi" (es: `container`, ...) che possono essere accodati per eseguire date operazioni.  
 Es `docker container ls -a` ➔ visualizza tutti i container, compresi quelli inattivi.  
 
@@ -15,10 +19,13 @@ di default le immagini verranno scaricate da DockerHub.
 
 con il comando `docker run <image:tag>` è possibile creare un container a partire da un'immaigne.  
 se l'immagine non esiste in locale, verrà automaticamente scaricata da DockerHub.  
+se non si usa la *detached mode*, per stoppere il container basterà premere `CTRL+C`.  
+se non si definisce un nome per il container, docker ne assegnerà uno in automatico.  
 
 ### Argomenti utili per Docker Run
 
-- `-d`: avvia il container in *detached mode* ➔ rilascia il terminale e fa girare il container in background
+- `-d`: avvia il container in *detached mode* ➔ rilascia il terminale e fa girare il container in background.
+- `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su <porta_container> sarà disponibile dall'host su <porta_host> (*vedi appunti sui container per altre info*)
 
 ## Docker Start Command
 
