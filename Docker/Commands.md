@@ -58,4 +58,18 @@ con il comando `docker logs <container_name || container_id>` è possibile visua
 
 ## Docker Images Command
 
-con il comando `docker images` è possibile visualizzare l'elenco di immagini disponibili in locale. 
+con il comando `docker images` è possibile visualizzare l'elenco di immagini disponibili in locale.  
+
+## Docker Exec Command
+
+con il comando `docker exec <container_name || container_id> <comando>` è possibile eseguire un comando all'interno del container, come se avessimo scritto il <comando> nel terminale del servizio all'interno del container stesso.  
+il container DEVE essere in esecuzione, altrimenti si verificherà un errore.  
+il <comando> DEVE essere un eseguibile.  
+
+### Argomenti utili per Docker Exec
+
+- `-i`: sta per *interactive*. Permette di mantenere `STDIN` aperto, quindi anche se il container non è stato avviato in *attached mode* (quindi è stato usato il flag `-d`) è possibile ricevere l'output del comando. Questo permette la composizione (o piping) dei comandi.  
+- `-t`: alloca un driver pseudo-TTY al terminale del container. Questo permette di interagire via hardware (es. digirate con la tastiera) nel terminale del container.  
+- `-it`: unisce i due flag precedenti, pemettendo di "accedere" al terminale del container (si potrebbe far finta di pensare di essere in ssh nel container).  
+  ➔ per accedere al terminale si usa il comando `docker exec -it <container_name || container_id> /bin/bash` oppure `docker exec -it <container_name || container_id> sh`.  
+- `-d`: esegue il comando in *detached mode* ➔ rilascia il terminale ed esegue il comando in background.
