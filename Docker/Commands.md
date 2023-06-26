@@ -28,4 +28,13 @@ con il comando `docker start <container_name || container_id>` è possibile far 
 
 ## Docker Stop Command
 
-con il comando `docker stop <container_name || container_id>` è possibile fermare un container senza eliminarlo.  
+con il comando `docker stop <container_name || container_id>` è possibile fermare un container senza eliminarlo. 
+
+## Docker Container List Command
+
+con il comando `docker container ls` è possibile visualizzare i container correntemente in esecuzione.  
+**alias:** `docker ps`  
+
+### Argomenti utili per Docker Container List
+
+- `-a`: visualizza tutti i container, compresi quelli inattivi.
