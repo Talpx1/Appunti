@@ -9,6 +9,8 @@ Es `docker container ls -a` ➔ visualizza tutti i container, compresi quelli in
 con il comando `docker pull <image:tag>` è possibile scaricare in locale un'immagine da una repository docker.  
 di default le immagini verranno scaricate da DockerHub.  
 
+**Best Practice**: sempre meglio definire un tag ( = versione) per le immagini che si usano in un progetto.  
+
 ## Docker Run Command
 
 con il comando `docker run <image:tag>` è possibile creare un container a partire da un'immaigne.  
@@ -33,8 +35,18 @@ con il comando `docker stop <container_name || container_id>` è possibile ferma
 ## Docker Container List Command
 
 con il comando `docker container ls` è possibile visualizzare i container correntemente in esecuzione.  
-**alias:** `docker ps`  
+**aliases:** 
+  - `docker ps`
+  - `docker container ps`  
 
 ### Argomenti utili per Docker Container List
 
-- `-a`: visualizza tutti i container, compresi quelli inattivi.
+- `-a`: visualizza tutti i container, compresi quelli inattivi.  
+
+## Docker Logs Command
+
+con il comando `docker logs <container_name || container_id>` è possibile visualizzare l'outut (logs) di un container se siamo in *detached mode*. 
+
+## Docker Images Command
+
+con il comando `docker images` è possibile visualizzare l'elenco di immagini disponibili in locale. 
