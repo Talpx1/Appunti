@@ -35,6 +35,7 @@ con il comando `docker stop <container_name || container_id>` è possibile ferma
 ## Docker Container List Command
 
 con il comando `docker container ls` è possibile visualizzare i container correntemente in esecuzione.  
+
 **aliases:** 
   - `docker ps`
   - `docker container ps`  
