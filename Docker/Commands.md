@@ -25,7 +25,8 @@ se non si definisce un nome per il container, docker ne assegnerà uno in automa
 ### Argomenti utili per Docker Run
 
 - `-d`: avvia il container in *detached mode* ➔ rilascia il terminale e fa girare il container in background.
-- `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su <porta_container> sarà disponibile dall'host su <porta_host> (*vedi appunti sui container per altre info*)
+- `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su <porta_container> sarà disponibile dall'host su <porta_host> (*vedi appunti sui container per altre info*).
+- `--name <nome_container>`: assegna un nome al container che si sta andando a creare.  
 
 ## Docker Start Command
 
