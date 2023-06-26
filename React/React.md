@@ -171,16 +171,14 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
     - es:
     ```js
     <Componente titolo="titolo esempio" />
-    ```
 
-  export default function Componente(proprieta){
-  console.log(proprieta.titolo) //printerá 'titolo esempio'
-  return ( <h1>Il titolo é {proprieta.titolo}</h1> )
-  }
-
-  Risultato: Il titolo é titolo esempio
-
-  ````
+    export default function Componente(proprieta){
+      console.log(proprieta.titolo) //printerá 'titolo esempio'
+      return ( <h1>Il titolo é {proprieta.titolo}</h1> )
+    }
+    ```  
+    Risultato: Il titolo é titolo esempio
+  
   - di solito si usa il destructuring degli oggetti per leggere le prorietá
     - per fare questo, nella dichiarazione del componente, come parametro, al posto di mettere una sola variabile, si dovrá mattere un oggetto con i nomi delle proprietá passate (devono essere uguali!)
     - es: `export default function Componente({prop1, prop2})`
