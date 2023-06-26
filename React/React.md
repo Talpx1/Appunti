@@ -199,9 +199,9 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
     }
     ```
 
-  	Risultato:
-  	 Il titolo é titolo esempio
-  	 La descrizione é descrizione esempio  
+    Risultato:
+     Il titolo é titolo esempio
+     La descrizione é descrizione esempio  
     
 
 ## Filesystem
