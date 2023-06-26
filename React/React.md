@@ -185,24 +185,24 @@ Possono essere definiti, in modo tecnico, funzioni che ritornano espressioni `JS
     - in questo modo non sará piú necessario leggere le proprietá dall'oggetto ma si potranno usare le proprietá come una variabile a sé
     - es:
     ```js
-    	   <Componente titolo="titolo esempio" descrizione='descrizione esempio' />
+    <Componente titolo="titolo esempio" descrizione='descrizione esempio' />
 
-  export default function Componente({titolo, descrizione}){
-  	console.log(titolo) //printerá 'titolo esempio'
-  	console.log(descrizione) //printerá 'descrizione esempio'
-  	return (
-  	  <>
-  	    <h1>Il titolo é {titolo}</h1>
-  	    <p>La descrizione é {descrizione}</p>
-  	  </>
-  	)
+    export default function Componente({titolo, descrizione}){
+      	console.log(titolo) //printerá 'titolo esempio'
+      	console.log(descrizione) //printerá 'descrizione esempio'
+      	return (
+      	  <>
+      	    <h1>Il titolo é {titolo}</h1>
+      	    <p>La descrizione é {descrizione}</p>
+      	  </>
+      	)
+    }
+    ```
 
   	Risultato:
   	 Il titolo é titolo esempio
-  	 La descrizione é descrizione esempio
-  }
-    ```
-  ````
+  	 La descrizione é descrizione esempio  
+    
 
 ## Filesystem
 
