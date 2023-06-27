@@ -58,7 +58,7 @@ con il comando `docker container ls` è possibile visualizzare i container corre
 
 ## Docker Logs Command
 
-con il comando `docker logs <container_name || container_id>` è possibile visualizzare l'outut (logs) di un container se siamo in *detached mode*. 
+con il comando `docker logs <container_name || container_id>` è possibile visualizzare l'output (logs) di un container se siamo in *detached mode*. 
 
 ## Docker Images Command
 
