@@ -22,9 +22,10 @@ tag:
 In caso il tag accettasse valori multipli, si può definire la lista di valori in questo modo:    
 ```YAML
 tag:
-  valore1:
-    valore2:
-      ...
+  - valore1
+  - valore2
+  ...
 ```
 
-Il file inizia sempre con il tag `version`.
+Il file inizia sempre con il tag `version`.  
+La versione attuale è la 3 ➔ `version: '3'`.  
