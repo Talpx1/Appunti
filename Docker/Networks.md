@@ -17,6 +17,6 @@ Possiamo visualizzare i network esistenti tramite il comando `docker network ls`
 ## Creare un nuovo network  
 Possiamo creare un nuovo network tramite il comando `docker network create <nome_network>` (*vedi gli appunti sui comandi per una spiegazione più approfondita su questo comanmdo*).  
 
-## Instaziare un container all'interno di un network  
-Per far sì che un container venga instanziato all'interno di un network, dobbiamo esplicitamente indicarlo nel momento in cui creiamo il container.  
+## Istaziare un container all'interno di un network  
+Per far sì che un container venga istanziato all'interno di un network, dobbiamo esplicitamente indicarlo nel momento in cui creiamo il container.  
 Questo può essere fatto tramite apposito flag nel comando `docker run`: `--net <network_name>` oppure `--network <network_name>`.  

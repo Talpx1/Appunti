@@ -1,8 +1,8 @@
 # Docker Commands
 
 Fonti:  
-  - https://www.youtube.com/watch?v=3c-iBn73dDE&t=3242s
-  - https://docs.docker.com/engine/reference/commandline/  
+- https://www.youtube.com/watch?v=3c-iBn73dDE&t=3242s
+- https://docs.docker.com/engine/reference/commandline/  
 
 Tutti i comandi Docker iniziano con `docker`, vi sono poi alcuni "sottocomandi" (es: `container`, ...) che possono essere accodati per eseguire date operazioni.  
 Es `docker container ls -a` ➔ visualizza tutti i container, compresi quelli inattivi.  
