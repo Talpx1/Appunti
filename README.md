@@ -15,7 +15,8 @@ Planning on taking notes about:
 - JS (ES6+) → on specific topics (like await/async, ...)
 - WebComponents
 - PWA
-- Minecraft Modding with:
+- MAYBE, Minecraft Modding with:
   - Forge
   - Fabric
   - Architectuary
+- Wordpress Plugin Development

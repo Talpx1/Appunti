@@ -32,6 +32,15 @@ se non si definisce un nome per il container, docker ne assegnerà uno in automa
 - `-e VARIABILE=valore`: questo flag può essere usato più volte nello stesso comando e permette di definire della variabili d'ambiente per il container.
 - `--net <network_name>` oppure `--network <network_name>`: connette il container al network specificato.  
 
+## Docker Remove Command
+
+con il comando `docker rm <container_name || container_id>` è possibile eliminare un container.  
+
+### Argomenti utili per Docker Remove
+
+- `-v` o `--volumes`: rimuove i volumi associati al container.  
+- `-f` o `--force`: forza la rimozione del container.  
+
 ## Docker Start Command
 
 con il comando `docker start <container_name || container_id>` è possibile far ripartire un container fermato precedentemente.  
@@ -75,7 +84,12 @@ il <comando> DEVE essere un eseguibile.
 - `-i`: sta per *interactive*. Permette di mantenere `STDIN` aperto, quindi anche se il container non è stato avviato in *attached mode* (quindi è stato usato il flag `-d`) è possibile ricevere l'output del comando. Questo permette la composizione (o piping) dei comandi.  
 - `-t`: alloca un driver pseudo-TTY al terminale del container. Questo permette di interagire via hardware (es. digirate con la tastiera) nel terminale del container.  
 - `-it`: unisce i due flag precedenti, pemettendo di "accedere" al terminale del container (si potrebbe far finta di pensare di essere in ssh nel container).  
-  ➔ per accedere al terminale si usa il comando `docker exec -it <container_name || container_id> /bin/bash` oppure `docker exec -it <container_name || container_id> sh`.  
+  ➔ per accedere al terminale si usa il comando  
+  `docker exec -it <container_name || container_id> /bin/bash`  
+  oppure  
+  `docker exec -it <container_name || container_id> sh`  
+  oppure  
+  `docker exec -it <container_name || container_id> /bin/sh`  
 - `-d`: esegue il comando in *detached mode* ➔ rilascia il terminale ed esegue il comando in background.
 
 ## Docker Network List Command
@@ -83,3 +97,25 @@ con il comando `docker network ls` è possibile visualizzare i network esistenti
 
 ## Docker Network Create Command
 con il comando `docker network create <nome_network>` è possibile creare un nuovo network.  
+
+## Docker Build Command
+
+con il comando `docker build -t <image_name>:<tag> <Dockerfile_path>` possiamo trasformare un Dockerfile (*vedi appunti su Dockerfile*) in un'immagine
+  
+L'immagine avrà nome `<image_name>` e tag `<tag>`, e verrà costruita usando le istruzioni del Dockerfile situato in `<Dockerfile_path>`.
+
+Possiamo immaginare questo comando come una sorta di avvio per un compiler che trasforma un Dockerfile in un'immagine.  
+
+## Docker Remove Image Command
+
+con il comando `docker rmi <image_name || image_id>` possiamo eliminare un'immagine salvata in locale.
+
+Per poter eliminare un'immagine è necessario che nessun container, attivo o meno, sia istanza di quell'immagine.  
+
+## Docker Container Prune Command
+
+con il comando `docker container prune` è possibile eliminare tutti i container inattivi.  
+
+## Docker System Prune Command
+
+con il comando `docker system prune` è possibile eliminare tutti i container e immagini inutilizzati/e.  
