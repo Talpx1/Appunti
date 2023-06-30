@@ -4,7 +4,7 @@ Fonti:
 - https://www.youtube.com/watch?v=3c-iBn73dDE&t=3242s
 - https://docs.docker.com/engine/reference/commandline/  
 
-Tutti i comandi Docker iniziano con `docker`, vi sono poi alcuni "sottocomandi" (es: `container`, ...) che possono essere accodati per eseguire date operazioni.  
+Tutti i comandi Docker iniziano con `docker`, vi sono poi alcuni "sotto-comandi" (es: `container`, ...) che possono essere accodati per eseguire date operazioni.  
 Es `docker container ls -a` ➔ visualizza tutti i container, compresi quelli inattivi.  
 
 Per una lista completa di comandi con i loro argomenti, far riferimento alla documentazione https://docs.docker.com/engine/reference/commandline/  
@@ -19,15 +19,15 @@ di default le immagini verranno scaricate da DockerHub.
 
 ## Docker Run Command
 
-con il comando `docker run <image:tag>` è possibile creare un container a partire da un'immaigne.  
+con il comando `docker run <image:tag>` è possibile creare un container a partire da un'immagine.  
 se l'immagine non esiste in locale, verrà automaticamente scaricata da DockerHub.  
-se non si usa la *detached mode*, per stoppere il container basterà premere `CTRL+C`.  
+se non si usa la *detached mode*, per stoppare il container basterà premere `CTRL+C`.  
 se non si definisce un nome per il container, docker ne assegnerà uno in automatico.  
 
 ### Argomenti utili per Docker Run
 
 - `-d`: avvia il container in *detached mode* ➔ rilascia il terminale e fa girare il container in background.
-- `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su <porta_container> sarà disponibile dall'host su <porta_host> (*vedi appunti sui container per altre info*).
+- `-p <porta_host>:<porta_container>`: espone una porta del container (numero dopo i :), su una porta della macchina host (numero prima dei :) (fa un binding delle porte) ➔ il servizio esposto su `<porta_container>` sarà disponibile dall'host su `<porta_host>` (*vedi appunti sui container per altre info*).
 - `--name <nome_container>`: assegna un nome al container che si sta andando a creare.
 - `-e VARIABILE=valore`: questo flag può essere usato più volte nello stesso comando e permette di definire della variabili d'ambiente per il container.
 - `--net <network_name>` oppure `--network <network_name>`: connette il container al network specificato.  
@@ -75,15 +75,15 @@ con il comando `docker images` è possibile visualizzare l'elenco di immagini di
 
 ## Docker Exec Command
 
-con il comando `docker exec <container_name || container_id> <comando>` è possibile eseguire un comando all'interno del container, come se avessimo scritto il <comando> nel terminale del servizio all'interno del container stesso.  
+con il comando `docker exec <container_name || container_id> <comando>` è possibile eseguire un comando all'interno del container, come se avessimo scritto il `<comando>` nel terminale del servizio all'interno del container stesso.  
 il container DEVE essere in esecuzione, altrimenti si verificherà un errore.  
-il <comando> DEVE essere un eseguibile.  
+il `<comando>` DEVE essere un eseguibile.  
 
 ### Argomenti utili per Docker Exec
 
 - `-i`: sta per *interactive*. Permette di mantenere `STDIN` aperto, quindi anche se il container non è stato avviato in *attached mode* (quindi è stato usato il flag `-d`) è possibile ricevere l'output del comando. Questo permette la composizione (o piping) dei comandi.  
-- `-t`: alloca un driver pseudo-TTY al terminale del container. Questo permette di interagire via hardware (es. digirate con la tastiera) nel terminale del container.  
-- `-it`: unisce i due flag precedenti, pemettendo di "accedere" al terminale del container (si potrebbe far finta di pensare di essere in ssh nel container).  
+- `-t`: alloca un driver pseudo-TTY al terminale del container. Questo permette di interagire via hardware (es. digitare con la tastiera) nel terminale del container.  
+- `-it`: unisce i due flag precedenti, permettendo di "accedere" al terminale del container (si potrebbe far finta di pensare di essere in ssh nel container).  
   ➔ per accedere al terminale si usa il comando  
   `docker exec -it <container_name || container_id> /bin/bash`  
   oppure  
@@ -119,3 +119,15 @@ con il comando `docker container prune` è possibile eliminare tutti i container
 ## Docker System Prune Command
 
 con il comando `docker system prune` è possibile eliminare tutti i container e immagini inutilizzati/e.  
+
+## Docker Tag Command
+
+TODO  
+
+## Docker Push Command
+
+TODO  
+
+## Docker Login Command
+
+TODO  
