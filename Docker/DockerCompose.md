@@ -125,7 +125,7 @@ Nota che, se si avvia il progetto in *attached mode*, i logs dei container saran
 
 ### Argomenti utili per il comando Docker Compose Up
 
-- `-d`: avvia i container in *datached mode* ➔ rilascia il terminale e fa girare i container in background.
+- `-d`: avvia i container in *detached mode* ➔ rilascia il terminale e fa girare i container in background.
 
 ## Fermare un progetto con Docker Compose
 

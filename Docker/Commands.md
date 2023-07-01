@@ -31,6 +31,9 @@ se non si definisce un nome per il container, docker ne assegnerà uno in automa
 - `--name <nome_container>`: assegna un nome al container che si sta andando a creare.
 - `-e VARIABILE=valore`: questo flag può essere usato più volte nello stesso comando e permette di definire della variabili d'ambiente per il container.
 - `--net <network_name>` oppure `--network <network_name>`: connette il container al network specificato.  
+- `-v <host_data_directory>:<container_data_directory>`: crea un host volume (*vedi appunti sui volumi per più info*), facendo un binding tra filesystem dell'host specificato in `<host_data_directory>` e filesystem del container specificato in `<container_data_directory>`.  
+- `-v <volume_name>:<container_data_directory>`: crea un named volume (*vedi appunti sui volumi per più info*), con nome `<volume_name>`, che persiste il filesystem del container specificato in `<container_data_directory>`.
+- `-v <container_data_directory>`: crea un anonymous volume (*vedi appunti sui volumi per più info*)che persiste il filesystem del container specificato in `<container_data_directory>`.
 
 ## Docker Remove Command
 
@@ -67,7 +70,11 @@ con il comando `docker container ls` è possibile visualizzare i container corre
 
 ## Docker Logs Command
 
-con il comando `docker logs <container_name || container_id>` è possibile visualizzare l'output (logs) di un container se siamo in *detached mode*. 
+con il comando `docker logs <container_name || container_id>` è possibile visualizzare l'output (logs) di un container se siamo in *detached mode*.
+
+## Docker Rename Command
+
+con il comando `docker rename <container_name || container_id> <new_name>` è possibile rinominare il container identificato da `<container_name || container_id>` con il valore `<new_name>`.  
 
 ## Docker Images Command
 
@@ -122,12 +129,37 @@ con il comando `docker system prune` è possibile eliminare tutti i container e 
 
 ## Docker Tag Command
 
-TODO  
+con il comando `docker tag <source_image>:<tag> <target_image>:<tag>` è possibile creare una *target image* che fa riferimento a una *source image*. 
+
+Una *target image* è un clone di una *source image*, che però ha un nome immagine completo, che torna utile per le operazioni di `docker push`.
+
+Un nome completo ha il seguente formato: `<repo_uri>:<port>/<path>`.  
+Sia `<host>` che `<port>` sono opzionali in caso si intenda usare l'immagine su Docker Hub.  
+
+- `<host>`: uri della repo in cui l'immagine verrà pushata (default: dockerhub.io).  
+- `<port>`: porta tramite la quale contattare la repo (default: 8080).  
+- `<path>`: nome dell'immagine in formato `vendor/nome:versione`.  
 
 ## Docker Push Command
 
-TODO  
+con il comando `docker push <image_name>:<tag>` è possibile caricare l'immagine `<image_name>` taggata con `<tag>`, su una Docker Repository (*vedi appunti su repository per più info*).
+
+Per specificare la repository remota su cui eseguire il push, l'immagine dev'essere propriamente taggata col comando `docker tag`.  
+
+Per eseguire il push, bisogna prima loggarsi sulla repository con il comando `docker login`.  
+
+Il `<tag>` può essere omesso.
+
+### Argomenti utili per Docker Push
+- `-a`: pusha tutti i tag dell'immagine.  
+- `-q`: sopprime l'output.
+
+**Alias:** `docker image push`  
 
 ## Docker Login Command
 
-TODO  
+con il comando `docker login <registry_server_uri>` è possibile eseguire il login in una docker repository (*vedi appunti su repository per più info*).  
+
+Le credenziali per la repositori vengono salvate in:
+- Linux: `$HOME/.docker/config.json`  
+- Windows: `%USERPROFILE%/.docker/config.json`  
