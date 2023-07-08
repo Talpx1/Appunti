@@ -1,9 +1,7 @@
 # REACT
 
-<p> Fonti:
-
+Fonti:
 - https://www.youtube.com/watch?v=bMknfKXIFA8
-</p>
 
 ## Vantaggi
 
