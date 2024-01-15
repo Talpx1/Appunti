@@ -1,6 +1,6 @@
 # Concetti Introduttivi
 
-In questa sezione verranno brevemente esposti alcuni concetti utili o necessari al fine della comprensione del resto degli appunti.  
+In questa sezione verranno brevemente esposti alcuni concetti utili o necessari al fine della comprensione del resto degli appunti, anche non direttamente legati a PHP.  
 
 ## Web Server  
 
@@ -38,8 +38,8 @@ Es:
 ```
 File system:
 /var/www/html/
-|____ dominio1/ --> files per il dominio 1
-|____ dominio2/ --> files per il dominio 2
+    |____ dominio1/ --> files per il dominio 1
+    |____ dominio2/ --> files per il dominio 2
 
 Virtual Host dominio1:
 <VirtualHost *:80>
@@ -66,17 +66,15 @@ Se, quindi, si tenta di accedere al file `test.php`, tramite uri `dominio1.com/t
 i file .htaccess hanno lo scopo di sovrascrivere le configurazioni del web server, per la specifica cartella nella quale sono ospitati.  
 Spesso vengono usati nella document root, per forzare tutte le richieste, qualunque sia la risorsa richiesta, ad eseguire il file index.php (che gestirà poi autonomamente la richiesta), creando un design pattern chiamato Front Controller.  
 
-## Ambienti di Sviluppo
+## Ambiente di Sviluppo
 
-Per sviluppare in PHP, non è necessaria alcuna configurazione nè strumento specifico.  
-Tecnicamente, è possibile scrivere codice PHP sul classico blocco note preinstallato su ogni distribuzione.  
-
-Per eseguire il codice, invece, serve un interprete PHP installato sul server.  
+Per eseguire codice PHP, serve un interprete PHP installato sul server.  
 Per scopi di sviluppo, il server può essere simulato in più modi:
 - usando un tool pre-configurato come [Laragon](https://laragon.org/index.html), [XAMPP](https://www.apachefriends.org/it/index.html) o [EasyPHP](https://www.easyphp.org/).  
 - Usando Docker.  
+- Usando il web server integrato in PHP, tramite il comando `php -S <indirizzo>:<porta> -t <document_root>`.  
 
-Come editor per la stesura di codice si possono usare, per esempio, [Visual Studio Code](https://code.visualstudio.com/) con le estensioni elencate sotto, oppure [PHPStorm](https://www.jetbrains.com/phpstorm/),  
+Tecnicamente, è possibile scrivere codice PHP sul classico blocco note preinstallato su ogni distribuzione, ma non risulterebbe un'esperienza molto piacevole. A tal riguardo ecco quali text-editor/IDE si possono, per esempio, usare [Visual Studio Code](https://code.visualstudio.com/) con le estensioni elencate sotto, oppure [PHPStorm](https://www.jetbrains.com/phpstorm/),  
 
 ### Estensioni utili allo sviluppo PHP per Visual Studio Code
 
@@ -109,3 +107,55 @@ Come editor per la stesura di codice si possono usare, per esempio, [Visual Stud
 - [VS Sequential Number](https://marketplace.visualstudio.com/items?itemName=neptunedesign.vs-sequential-number): permette di inserire sequenze numeriche quando si hanno più cursori attivi.  
 - [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl): permette di accedere e sviluppare direttamente su WSL, da VSCode.  
 - [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock): permette di modificare i colori dell'istanza di VSCode, utile quando si lavora su un progetto con più ambienti/servizi e si hanno diverse finestre di VSCode aperte.  
+
+
+## Architettura Client-Server
+
+In questa sezione, si spiega in maniera breve ed essenziale l'architettura client-server, illustrando di conseguenza il lifecycle di un'app PHP.  
+Questo è utile per capire dove viene eseguito PHP e come ci vengono restituite le risposte.  
+
+## Richiesta e Risposta
+
+Al fine di comprendere meglio quanto segue, definiamo i due seguenti termini (che acquisiranno ancor più significato successivamente):  
+- Richiesta: la possiamo immaginare come una vera e propria domanda che si fa per ottenere un risultato. Tecnicamente è un pacchetto, spesso aderente al protocollo HTTP, che il client invia al server per richiedere una risorsa (verrà spiegato appena sotto cosa significa).
+- Risposta: è l'effettivo risultato alla domanda (richiesta). In termini più tecnici è il pacchetto di risposta che il server emette dopo aver gestito la richiesta.
+
+### Cos'è il Server
+
+Il server è la macchina che ospita l'eseguibile di PHP e interpreta il codice PHP.  
+In un ambiente di sviluppo, il server può coincidere col client.  
+
+### Cos'è il Client
+
+È l'iniziatore della richiesta, ovvero il dispositivo che tramite una data azione (da terminale, visitando un sito web, lanciando uno script) richiede al server una risorsa, che nel nostro contesto causa l'esecuzione di codice PHP.  
+Come prima, in un ambiente di sviluppo il server può coincidere col client.
+
+### Lifecycle di un'applicazione o script PHP  
+
+Prima di addentrarci nel discorso, spieghiamo velocissimamente cosa si intende per 'lifecycle':  
+come si intuisce dalla traduzione, il lifecycle di un'app (o script, o qualsiasi esecuzione di codice PHP in maniera tradizionale) è il suo ciclo di vita, che inizia quando si genera la richiesta e finisce quando si riceve la risposta. Richiesta e risposta sono i due componenti fondamentali del lifecycle in PHP. Se questa definizione sembra un po'fumosa, è normale, continua a leggere.  
+
+Come verrà spiegato meglio sotto, PHP è un linguaggio lato server, quindi il lifecycle si estende su più dispositivi: un client e un server.  
+Allo scopo di questa spiegazione, immaginiamo il client come un qualsiasi computer che tenta di accedere a un sito web e come server la macchina fisica che ospita i file del sito web (il così detto hosting).  
+
+Quando il nostro client tenterà di accedere al sito, genererà una richiesta. In questo momento inizia il lifecycle dell'applicazione, se pur questa non sia nel momento attuale ancora in esecuzione.  
+
+La richiesta, dopo essere stata risolta da un server DNS, arriva al nostro server, che ha il compito di gestirla.  
+In caso sia presente un web server, questo gestirà la richiesta come descritto sopra.
+Nel momento in cui il web server rileva di dover eseguire un file PHP, attiva l'interprete PHP, a cui dà in pasto il file. È questo il momento in cui l'applicazione si avvia.  
+
+Da qui in poi, il codice viene interpretato finché non si arriva alla fine. A questo punto l'applicazione non è più in esecuzione.  
+
+Il risultato prodotto, spesso testo in formato HTML (come nel caso del nostro esempio), costituisce la risposta che il web server manda indietro al client.  
+
+Tale risposta viene poi accolta dal browser che il client ha usato per generare la richiesta (visitare il sito), che a sua volta interpreta il testo ricevuto e lo impagina, facendocelo vedere come le pagine web a cui siamo abituati. A questo punto finisce il lifecycle dell'applicazione PHP.  
+
+### Perché ne parliamo  
+
+PHP è un linguaggio lato server: il codice che scriviamo non verrà 'letto' dal dispositivo dell'utente (come nel caso di Javascript), ma bensì da un server, che interpreterà il nostro codice e restituirà un risultato, come una pagina HTML o un contenuto testuale, che verrà visualizzato dal dispositivo da cui l'utente ha inviato la richiesta.  
+
+Possiamo immaginare che, in una file che contiene sia PHP che HTML, il nostro codice venga sostituito dal suo stesso risultato, per poi esserci fornito come un file HTML normalissimo, senza PHP al suo interno.  
+
+Questa caratteristica dà quindi vita a una serie di comportamenti e caratteristiche specifiche di un linguaggio lato server (es: inserire PHP in HTML, creare HTML da PHP, ...) andando a definire alcune restrizioni e opportunità del linguaggio.  
+
+È importante avere sempre in mente questa peculiarità quando si sviluppa con PHP, in quanto sarà la risposta ad alcuni dei nostri problemi, la soluzione ad alcune esigenze e un vero e proprio modo di pensare allo sviluppo, al suo contesto e alla scrittura del codice stesso.  
