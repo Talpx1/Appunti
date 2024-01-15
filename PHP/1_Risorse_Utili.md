@@ -38,3 +38,10 @@
 - Design Patterns in PHP: https://github.com/DesignPatternsPHP/DesignPatternsPHP
 - Ecosistema PHP: https://github.com/ziadoz/awesome-php
 - API Pubbliche: https://github.com/public-apis/public-apis
+
+## Podcasts:
+- PHPUgly - incentrato su PHP: https://phpugly.com/
+- Gitbar: - Sviluppo in generale, in italiano: https://www.gitbar.it/
+
+## Organizzazioni:
+- PHP-Fig: https://www.php-fig.org/
