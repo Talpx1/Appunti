@@ -29,7 +29,7 @@
 - PHP Weekly - incentrata su PHP: https://www.phpweekly.com/
 - freek.dev - incentrata su PHP: https://freek.dev/newsletter
 
-## E-bBoks
+## E-Books
 - Design Patterns PHP: https://readthedocs.org/projects/designpatternsphp/downloads/
 
 ## Liste
