@@ -8,6 +8,7 @@ Currently having notes for:
 - Flutter → in progress - paused
 - Docker → in progress - nearly done
 - PHP → in progress
+- Vue → in progress
 
 Planning on taking notes about:
 
